@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Input, Stack, Text } from "@chakra-ui/react";
-import React, { ChangeEvent, useState } from "react";
+import { Button, Flex, Text } from "@chakra-ui/react";
+import { ChangeEvent, useState } from "react";
 import InputField from "./InputField";
 
 // Todo: Add types

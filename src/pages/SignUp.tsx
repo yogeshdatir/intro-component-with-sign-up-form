@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Description from "../components/Description";
 import Form from "../components/Form";
 import TrialBanner from "../components/Form/TrialBanner";

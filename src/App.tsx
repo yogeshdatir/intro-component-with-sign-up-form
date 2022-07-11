@@ -1,5 +1,4 @@
 import { ChakraProvider, Box, extendTheme } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import SignUp from "./pages/SignUp";
 
 const variantOutlined = () => ({
