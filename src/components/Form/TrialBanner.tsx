@@ -9,12 +9,12 @@ const TrialBanner = () => {
         borderRadius: "10px",
         marginBottom: "1.5rem",
         textAlign: "center",
-        padding: "18px 0",
+        padding: "18px 4rem",
       }}
     >
       <Text
         sx={{
-          fontWeight: 400,
+          fontWeight: 500,
           fontSize: "15px",
           lineHeight: "26px",
           textAlign: "center",

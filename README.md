@@ -1,3 +1,100 @@
+
+
+# Frontend Mentor - Intro component with sign up form solution
+
+This is a solution to the [Intro component with sign up form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+
+## Table of contents
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Receive an error message when the `form` is submitted if:
+  - Any `input` field is empty. The message for this error should say *"[Field Name] cannot be empty"*
+  - The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say *"Looks like this is not an email"*
+
+### Screenshot
+
+![](C:\Virtual Drives\Workspace\Frontend mentor\solutions\intro-component-with-sign-up-form\src\images\Desktop SS.png)
+
+
+
+![](C:\Virtual Drives\Workspace\Frontend mentor\solutions\intro-component-with-sign-up-form\src\images\Desktop Error SS.png)
+
+
+
+![](C:\Virtual Drives\Workspace\Frontend mentor\solutions\intro-component-with-sign-up-form\src\images\Mobile SS.png)
+
+### Links
+
+- [Solution](https://github.com/yogeshdatir/intro-component-with-sign-up-form)
+- [Live Site](https://chakra-form.netlify.app/)
+
+## My process
+
+### Built with
+
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [TypeScript](https://www.typescriptlang.org/) - for type checking
+- [Chakra-UI](https://chakra-ui.com/) - component library
+
+### What I learned
+
+Used this project to learn about Chakra-UI. Also, used this opportunity to create a strongly typed components.
+
+My Learnings from this project are:
+
+1. How change global styles in Chakra-UI
+2. How to extend themes in Chakra-UI
+3. Types for different React Events
+4. Error: When accessing an object property with a variable value, type assertion is needed to be used. 
+
+```jsx
+// Error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'IFormErrorState'. ts(7053)
+
+delete newState[name as keyof IFormErrorState];
+```
+
+[This is the resource](https://bobbyhadz.com/blog/typescript-element-implicitly-has-any-type-expression#:~:text=The%20error%20%22Element%20implicitly%20has,one%20of%20the%20object's%20keys.) for this error resolution which talks about the error in details.
+
+### Continued development
+
+I will be consistently working on ways to make code with Chakra-UI and Typescript better. One thing that I will be researching is how can reuse code with Chakra-UI.
+
+### Useful resources
+
+- [Global Styles with Chakra-UI](https://chakra-ui.com/docs/styled-system/global-styles) - This helped me for to adjust global styles.
+- [Responsive styled with Chakra-UI](https://chakra-ui.com/docs/styled-system/responsive-styles) - This is a helpful part of documentation which helped me to add responsiveness to the components with ease.
+
+## Author
+
+- [My Github](https://github.com/yogeshdatir)
+- Frontend Mentor - [@YogeshD
+
+
+
+------
+
+
+
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
 

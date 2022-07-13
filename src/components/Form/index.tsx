@@ -182,13 +182,15 @@ const Form = () => {
             letterSpacing: "1px",
             textTransform: "uppercase",
             color: "#FFFFFF",
+            padding: "15px 0",
+            height: "auto",
 
             _hover: {
               background: "#77E2B3",
             },
           }}
         >
-          claim your free trial
+          <Text>claim your free trial</Text>
         </Button>
         <Text
           sx={{

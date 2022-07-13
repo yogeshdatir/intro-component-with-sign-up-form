@@ -1,15 +1,21 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, useBreakpointValue } from "@chakra-ui/react";
 import Description from "../components/Description";
 import Form from "../components/Form";
 import TrialBanner from "../components/Form/TrialBanner";
 import BackgroundImageDesktop from "../images/bg-intro-desktop.png";
+import BackgroundImageMobile from "../images/bg-intro-mobile.png";
 
 const SignUp = () => {
+  const BackgroundImage = useBreakpointValue({
+    base: BackgroundImageMobile,
+    md: BackgroundImageDesktop,
+  });
+
   return (
-    <Flex minH="100vh" bgColor="#FF7979" justify="center" align="center">
+    <Flex minH="97.9vh" bgColor="#FF7979" justify="center" align="center">
       <Flex
-        minH="100vh"
-        bgImage={BackgroundImageDesktop}
+        minH="100%"
+        bgImage={BackgroundImage}
         bgRepeat="no-repeat"
         bgSize="cover"
         justify="center"
