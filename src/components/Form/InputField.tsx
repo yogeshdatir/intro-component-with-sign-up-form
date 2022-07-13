@@ -1,12 +1,13 @@
 import { WarningIcon } from "@chakra-ui/icons";
 import {
-  ChakraStyledOptions,
   FormControl,
   FormErrorMessage,
   Input,
   InputGroup,
+  InputProps,
   InputRightElement,
 } from "@chakra-ui/react";
+import { IFormErrorState } from ".";
 
 const InputFieldStyle = {
   background: "#FFFFFF",
@@ -39,20 +40,27 @@ const ErrorInputFieldPlaceholderStyle = {
   },
 };
 
-const InputField = ({ errorState, ...rest }: ChakraStyledOptions) => {
+export interface IInputFieldProps extends InputProps {
+  errorState: IFormErrorState;
+}
+
+const InputField = ({ errorState, ...rest }: IInputFieldProps) => {
   const { name } = rest;
   return (
-    <FormControl isInvalid={errorState[name]} mb="1rem">
+    <FormControl
+      isInvalid={!!errorState[name as keyof IFormErrorState]}
+      mb="1rem"
+    >
       <InputGroup>
         <Input
           sx={
-            errorState[name]
+            !!errorState[name as keyof IFormErrorState]
               ? { ...InputFieldStyle, ...ErrorInputFieldPlaceholderStyle }
               : InputFieldStyle
           }
           {...rest}
         />
-        {errorState[name] && (
+        {!!errorState[name as keyof IFormErrorState] && (
           <InputRightElement
             h="100%"
             children={<WarningIcon w={6} h={6} color="#FF7979" />}
@@ -71,7 +79,7 @@ const InputField = ({ errorState, ...rest }: ChakraStyledOptions) => {
           marginTop: "6px",
         }}
       >
-        {errorState[name]?.message}
+        {errorState[name as keyof IFormErrorState]?.message}
       </FormErrorMessage>
     </FormControl>
   );
