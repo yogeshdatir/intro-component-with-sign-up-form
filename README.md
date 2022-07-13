@@ -70,7 +70,10 @@ My Learnings from this project are:
 
 ```jsx
 // Error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'IFormErrorState'. ts(7053)
+// code responsible:
+delete newState[name];
 
+// correct code:
 delete newState[name as keyof IFormErrorState];
 ```
 
