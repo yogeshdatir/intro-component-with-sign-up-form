@@ -1,9 +1,6 @@
 import { Heading, Text } from "@chakra-ui/react";
-import React from "react";
 
-type Props = {};
-
-const Description = (props: Props) => {
+const Description = () => {
   return (
     <>
       <Heading

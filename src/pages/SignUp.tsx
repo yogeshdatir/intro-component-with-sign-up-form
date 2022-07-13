@@ -4,9 +4,7 @@ import Form from "../components/Form";
 import TrialBanner from "../components/Form/TrialBanner";
 import BackgroundImageDesktop from "../images/bg-intro-desktop.png";
 
-type Props = {};
-
-const SignUp = (props: Props) => {
+const SignUp = () => {
   return (
     <Flex minH="100vh" bgColor="#FF7979" justify="center" align="center">
       <Flex

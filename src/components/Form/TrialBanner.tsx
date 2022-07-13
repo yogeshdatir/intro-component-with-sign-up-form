@@ -1,8 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 
-type Props = {};
-
-const TrialBanner = (props: Props) => {
+const TrialBanner = () => {
   return (
     <Box
       sx={{

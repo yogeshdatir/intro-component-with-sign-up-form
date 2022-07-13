@@ -1,35 +1,48 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FocusEvent, FormEvent, useState } from "react";
 import InputField from "./InputField";
 
 // Todo: Add types
 
-const getInitialFormState: any = () => ({
+export interface IFormState {
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  password: string;
+}
+
+export interface IFormErrorState {
+  firstName?: { message: string };
+  lastName?: { message: string };
+  emailAddress?: { message: string };
+  password?: { message: string };
+}
+
+export interface IFormPlaceholderState extends IFormState {}
+
+const getInitialFormState: () => IFormState = () => ({
   firstName: "",
   lastName: "",
   emailAddress: "",
   password: "",
 });
 
-const getInitialFormPlaceholderState = () => ({
+const getInitialFormPlaceholderState: () => IFormPlaceholderState = () => ({
   firstName: "First Name",
   lastName: "Last Name",
   emailAddress: "Email Address",
   password: "Password",
 });
 
-export const validRegex =
+export const validRegex: RegExp =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-type Props = {};
-
-const Form = (props: Props) => {
-  const [formState, setFormState] = useState(getInitialFormState());
+const Form = () => {
+  const [formState, setFormState] = useState<IFormState>(getInitialFormState());
   const { firstName, lastName, emailAddress, password } = formState;
 
-  const [formPlaceholderState, setFormPlaceholderState] = useState(
-    getInitialFormPlaceholderState()
-  );
+  const [formPlaceholderState, setFormPlaceholderState] =
+    useState<IFormPlaceholderState>(getInitialFormPlaceholderState());
   const {
     firstName: firstNamePlaceholder,
     lastName: lastNamePlaceholder,
@@ -37,72 +50,83 @@ const Form = (props: Props) => {
     password: passwordPlaceholder,
   } = formPlaceholderState;
 
-  const [errorState, setErrorState] = useState({});
+  const [errorState, setErrorState] = useState<IFormErrorState>({});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value },
     } = e;
-    setFormState((prevState: any) => ({ ...prevState, [name]: value }));
+    setFormState((prevState: IFormState) => ({ ...prevState, [name]: value }));
     if (name === "emailAddress" && (!value || !value.match(validRegex))) {
-      setFormPlaceholderState((prevState: any) => ({
+      setFormPlaceholderState((prevState: IFormPlaceholderState) => ({
         ...prevState,
         [name]: "email@example.com",
       }));
-      setErrorState((prevState: any) => ({
+      setErrorState((prevState: IFormErrorState) => ({
         ...prevState,
         [name]: { message: `Looks like this is not an email` },
       }));
     } else if (value) {
-      setFormPlaceholderState((prevState: any) => ({
+      setFormPlaceholderState((prevState: IFormPlaceholderState) => ({
         ...prevState,
         [name]: "",
       }));
-      setErrorState((prevState: any) => {
-        const newState = { ...prevState };
-        delete newState[name];
+      setErrorState((prevState: IFormErrorState) => {
+        const newState: IFormErrorState = { ...prevState };
+
+        // Error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'IFormErrorState'. ts(7053)
+        // Solution: Resource: https://bobbyhadz.com/blog/typescript-element-implicitly-has-any-type-expression#:~:text=The%20error%20%22Element%20implicitly%20has,one%20of%20the%20object's%20keys.
+        delete newState[name as keyof IFormErrorState];
+
         return newState;
       });
     }
   };
 
-  const handleBlur = (e: any) => {
+  const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
     const {
       target: { name, value },
     } = e;
     if (name === "emailAddress" && (!value || !value.match(validRegex))) {
-      setFormPlaceholderState((prevState: any) => ({
+      setFormPlaceholderState((prevState: IFormPlaceholderState) => ({
         ...prevState,
         [name]: "email@example.com",
       }));
-      setErrorState((prevState: any) => ({
+      setErrorState((prevState: IFormErrorState) => ({
         ...prevState,
         [name]: { message: `Looks like this is not an email` },
       }));
     } else if (!value) {
-      setFormPlaceholderState((prevState: any) => ({
+      setFormPlaceholderState((prevState: IFormPlaceholderState) => ({
         ...prevState,
         [name]: "",
       }));
-      const fieldNames: any = getInitialFormPlaceholderState();
+
       setErrorState((prevState: any) => ({
         ...prevState,
         [name]: {
-          message: `${fieldNames[name]} can not be empty`,
+          message: `${
+            getInitialFormPlaceholderState()[
+              name as keyof IFormPlaceholderState
+            ]
+          } can not be empty`,
         },
       }));
     }
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (
+      !errorState ||
+      JSON.stringify(formState) === JSON.stringify(getInitialFormState())
+    )
+      return;
+    alert(JSON.stringify(formState));
+  };
+
   return (
-    <form
-      onSubmit={(e: any) => {
-        e.preventDefault();
-        if (!errorState) return;
-        alert(JSON.stringify(formState));
-      }}
-      noValidate
-    >
+    <form onSubmit={handleSubmit} noValidate>
       <Flex
         direction="column"
         p={["1.5rem", "1.5rem", "1.5rem", "2.5rem"]}
