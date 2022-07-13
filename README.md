@@ -1,21 +1,27 @@
-
-
 # Frontend Mentor - Intro component with sign up form solution
 
-This is a solution to the [Intro component with sign up form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Intro component with sign up form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+- [Frontend Mentor - Intro component with sign up form solution](#frontend-mentor---intro-component-with-sign-up-form-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
+  - [Available Scripts](#available-scripts)
+    - [`yarn start`](#yarn-start)
+    - [`yarn test`](#yarn-test)
+    - [`yarn build`](#yarn-build)
+    - [`yarn eject`](#yarn-eject)
+  - [Learn More](#learn-more)
 
 ## Overview
 
@@ -26,20 +32,16 @@ Users should be able to:
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Receive an error message when the `form` is submitted if:
-  - Any `input` field is empty. The message for this error should say *"[Field Name] cannot be empty"*
-  - The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say *"Looks like this is not an email"*
+  - Any `input` field is empty. The message for this error should say _"[Field Name] cannot be empty"_
+  - The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say _"Looks like this is not an email"_
 
 ### Screenshot
 
-![](C:\Virtual Drives\Workspace\Frontend mentor\solutions\intro-component-with-sign-up-form\src\images\Desktop SS.png)
+![Desktop Screenshot](./src/images/Desktop%20SS.png)
 
+![Desktop Error Screenshot](./src/images/Desktop%20Error%20SS.png)
 
-
-![](C:\Virtual Drives\Workspace\Frontend mentor\solutions\intro-component-with-sign-up-form\src\images\Desktop Error SS.png)
-
-
-
-![](C:\Virtual Drives\Workspace\Frontend mentor\solutions\intro-component-with-sign-up-form\src\images\Mobile SS.png)
+![Mobile Screenshot](./src/images/Mobile%20SS.png)
 
 ### Links
 
@@ -51,7 +53,6 @@ Users should be able to:
 ### Built with
 
 - Flexbox
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [TypeScript](https://www.typescriptlang.org/) - for type checking
 - [Chakra-UI](https://chakra-ui.com/) - component library
@@ -65,7 +66,7 @@ My Learnings from this project are:
 1. How change global styles in Chakra-UI
 2. How to extend themes in Chakra-UI
 3. Types for different React Events
-4. Error: When accessing an object property with a variable value, type assertion is needed to be used. 
+4. Error: When accessing an object property with a variable value, type assertion is needed to be used.
 
 ```jsx
 // Error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'IFormErrorState'. ts(7053)
@@ -89,11 +90,7 @@ I will be consistently working on ways to make code with Chakra-UI and Typescrip
 - [My Github](https://github.com/yogeshdatir)
 - Frontend Mentor - [@YogeshD
 
-
-
-------
-
-
+---
 
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
