@@ -74,7 +74,6 @@ const InputField = ({ errorState, ...rest }: IInputFieldProps) => {
           fontWeight: 500,
           fontSize: "11px",
           lineHeight: "16px",
-          textAlign: "right",
           color: "#FF7979",
           marginTop: "6px",
         }}

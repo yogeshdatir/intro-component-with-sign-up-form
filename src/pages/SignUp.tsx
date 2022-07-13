@@ -20,7 +20,7 @@ const SignUp = () => {
         bgSize="cover"
         justify="center"
         align="center"
-        p={["5.5rem 0", "5.5rem 0", 0]}
+        p={["5.5rem 0", "5.5rem 0", "5.5rem 0", 0]}
       >
         <Flex
           direction={["column", "column", "column", "row"]}

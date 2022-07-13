@@ -102,7 +102,7 @@ const Form = () => {
         [name]: "",
       }));
 
-      setErrorState((prevState: any) => ({
+      setErrorState((prevState: IFormErrorState) => ({
         ...prevState,
         [name]: {
           message: `${
@@ -117,11 +117,24 @@ const Form = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (
-      !errorState ||
-      JSON.stringify(formState) === JSON.stringify(getInitialFormState())
-    )
+    if (JSON.stringify(formState) === JSON.stringify(getInitialFormState())) {
+      setFormPlaceholderState((prevState: IFormPlaceholderState) => ({
+        firstName: "",
+        lastName: "",
+        emailAddress: "",
+        password: "",
+      }));
+
+      setErrorState((prevState: IFormErrorState) => ({
+        firstName: { message: `First Name can not be empty` },
+        lastName: { message: `Last Name can not be empty` },
+        emailAddress: { message: `Email Address can not be empty` },
+        password: { message: `Password can not be empty` },
+      }));
       return;
+    } else if (Object.keys(errorState).length !== 0) {
+      return;
+    }
     alert(JSON.stringify(formState));
   };
 
