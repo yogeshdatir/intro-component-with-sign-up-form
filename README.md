@@ -91,7 +91,7 @@ I will be consistently working on ways to make code with Chakra-UI and Typescrip
 ## Author
 
 - [My Github](https://github.com/yogeshdatir)
-- Frontend Mentor - [@YogeshD
+- Frontend Mentor - [@YogeshD](https://www.frontendmentor.io/profile/yogeshdatir)
 
 ---
 
